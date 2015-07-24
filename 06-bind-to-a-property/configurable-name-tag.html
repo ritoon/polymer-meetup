@@ -1,0 +1,44 @@
+<link rel="import"
+      href="bower_components/polymer/polymer.html">
+
+<!-- import the iron-input custom element -->
+<link rel="import"
+      href="bower_components/iron-input/iron-input.html">
+
+<dom-module id="configurable-name-tag">
+
+  <style>
+  .right{
+    text-align: right;
+    font-size: 2em;
+    padding: 0;
+  }
+  </style>
+
+  <template>
+    <img src="img/polymer-logo.png" />
+    <p>This is</p>
+
+    <!-- bind to the "meetup" property -->
+    <h1>{{meetup}}</h1>
+    <p class="right">Meetup</p>
+
+    <!-- iron-input exposes a two-way bindable input value -->
+    <input is="iron-input" bind-value="{{meetup}}"
+      placeholder="Your Meetup name here...">
+  </template>
+
+  <script>
+    Polymer({
+      is: "configurable-name-tag",
+      properties: {
+        // declare the meetup property
+        meetup: {
+          type: String,
+          value: "Google Polymer Paris"
+        }
+      }
+    });
+  </script>
+  
+</dom-module>
